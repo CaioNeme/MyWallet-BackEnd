@@ -1,14 +1,15 @@
-import { Response } from 'express';
-import httpStatus from 'http-status';
 import { AuthenticatedRequest } from '@/middlewares/authenticationMiddleware';
 import { transactionService } from '@/services/transaction.service';
+import { Response } from 'express';
+import httpStatus from 'http-status';
 
 export async function createTransaction(req: AuthenticatedRequest, res: Response) {
   const { description, value } = req.body;
   const { type } = req.params;
   const { userId } = req;
+  let valuenum = Number(value);
 
-  await transactionService.createTransaction(userId, value, description, type);
+  await transactionService.createTransaction(userId, valuenum, description, type);
 
   res.sendStatus(httpStatus.CREATED);
 }

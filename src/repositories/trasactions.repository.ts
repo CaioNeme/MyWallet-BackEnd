@@ -1,5 +1,5 @@
-import dayjs from 'dayjs';
 import { prisma } from '@/config/database';
+import dayjs from 'dayjs';
 
 async function createTransaction(userId: number, value: number, description: string, type: string) {
   const transaction = await prisma.transactions.create({

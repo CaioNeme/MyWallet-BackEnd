@@ -1,5 +1,5 @@
-import { transactionRepository } from '@/repositories/trasactions.repository';
 import { invalidDataError } from '@/errors';
+import { transactionRepository } from '@/repositories/trasactions.repository';
 
 async function createTransaction(userId: number, value: number, description: string, type: string) {
   if (!userId || !value || !description || !type) {
